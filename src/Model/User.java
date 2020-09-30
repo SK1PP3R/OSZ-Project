@@ -1,4 +1,6 @@
 package Model;
+import jdk.nashorn.internal.parser.JSONParser;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,22 +20,22 @@ public class User {
     public User(int id){
             this.id = id;
     }
-    public static void getJson(){
+    public static JSONArray getJson(){
         try{
-            URL httpClient = new URL("https","cloudu24.de/api/1.0/",443,"project/view?user_id=1");
+            URL httpClient = new URL("http","82.165.118.172",80,"/api/1.0/project/view?user_id=1");
             URLConnection httppost = httpClient.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     httppost.getInputStream()));
             String inputLine;
-            while ((inputLine = reader.readLine()) != null)
+            while ((inputLine = reader.readLine()) != null){
                 System.out.println(inputLine);
+                return new JSONArray(inputLine);
+            }
             reader.close();
         }
-        catch(java.net.MalformedURLException e){
-            System.out.print("Client funktioniert nicht");
+        catch(Exception e){
+            System.out.print(e.getMessage());
         }
-        catch(java.io.IOException f){
-            System.out.print("Verbindung funkioniert nicht");
-        }
+        return new JSONArray();
     }
 }
