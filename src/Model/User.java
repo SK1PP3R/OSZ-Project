@@ -19,4 +19,7 @@ public class User {
             System.out.print("Fehler im JSON");
         }
     }
+    public static void getUserById(int id){
+        //return new User();
+    }
 }
