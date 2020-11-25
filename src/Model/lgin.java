@@ -4,9 +4,9 @@ import javax.swing.*;
 
 public class lgin {
     private JPanel panel1;
+    private JTextField textField2;
+    private JPasswordField passwordField1;
     private JButton loginButton;
-    private JTextField userNameTextField;
-    private JPasswordField a3e3ePasswordField;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
